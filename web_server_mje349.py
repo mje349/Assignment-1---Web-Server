@@ -13,6 +13,20 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 #Prepare a sever socket
 #Fill in start
 
+#I arbitrarily choose port 8000 for testing
+serverPort = 8000
+serverSocket.bind(('', serverPort))
+serverSocket.listen(1)
+
+print('The server is now listening...')
+
+while True:
+    connectionSocket, addr = serverSocket.accept()
+    sentence = connectionSocket.recv(1024).decode()
+    capitalizedSentence = sentence.upper()
+    connectionSocket.send(capitalizedSentence.encode())
+    connectionSocket.close()
+
 #Fill in end
 
 while True:
