@@ -16,6 +16,8 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 #I arbitrarily choose port 8000 for testing
 serverPort = 8000
 serverSocket.bind(('', serverPort))
+
+#The parameter to listen specifies the maximum number of queued connections
 serverSocket.listen(1)
 
 print('The server is now listening...')
