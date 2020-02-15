@@ -13,37 +13,30 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 #Prepare a sever socket
 #Fill in start
 
-#I arbitrarily choose port 8000 for testing
-serverPort = 8000
-serverSocket.bind(('', serverPort))
+#I arbitrarily choose port 8080 for testing
+serverPort = 8080
+serverSocket.bind(('localhost', serverPort))
 
 #The parameter to listen specifies the maximum number of queued connections
 serverSocket.listen(1)
-
-print('The server is now listening...')
-
-while True:
-    connectionSocket, addr = serverSocket.accept()
-    sentence = connectionSocket.recv(1024).decode()
-    capitalizedSentence = sentence.upper()
-    connectionSocket.send(capitalizedSentence.encode())
-    connectionSocket.close()
 
 #Fill in end
 
 while True:
     #Establish the connection
     print('Ready to serve...')
-    connectionSocket, addr = #Fill in start      #Fill in end
+
+    #"Client Socket"
+    connectionSocket, addr = '''Fill in start ''' serverSocket.accept() ''''Fill in end'''
     try:
-        message = #Fill in start    #Fill in end
+        message = '''Fill in start''' connectionSocket.recv(1024).decode '''Fill in end'''
         filename = message.split()[1]
         f = open(filename[1:])
-        outputdata = #Fill in start     #Fill in end
+        outputdata = '''Fill in start ''' "HelloWorld.html"  '''#Fill in end'''
 
         #Send one HTTP header line into socket
         #Fill in start
-
+        connectionSocket.send('HTTP/1.1 200 OK\r\n')
         #Fill in end
 
         #Send the content of the requested file to the client
@@ -60,6 +53,7 @@ while True:
 
         #Close client socket
         #Fill in start
+        connectionSocket.close()
 
         #Fill in end
 serverSocket.close()
