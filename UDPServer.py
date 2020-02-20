@@ -7,7 +7,7 @@ from socket import *
 SERVER_PORT = 12000
 
 server_socket = socket(AF_INET, SOCK_DGRAM)
-server_socket.bind(' ', SERVER_PORT)
+server_socket.bind(('', SERVER_PORT))
 
 print('The server is ready to receive on port' + str(SERVER_PORT))
 

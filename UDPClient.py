@@ -5,6 +5,8 @@
 
 from socket import *
 
+from pip._vendor.distlib.compat import raw_input
+
 SERVER_NAME = 'localhost'
 PORT = 12000
 
