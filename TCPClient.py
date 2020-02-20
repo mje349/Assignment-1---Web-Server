@@ -7,7 +7,7 @@ from socket import *
 
 from pip._vendor.distlib.compat import raw_input
 
-SERVER_NAME = 'servername'
+SERVER_NAME = 'localhost'
 SERVER_PORT = 12000
 
 client_socket = socket(AF_INET, SOCK_STREAM)
