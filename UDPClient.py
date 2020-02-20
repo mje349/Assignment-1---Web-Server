@@ -5,7 +5,7 @@
 
 from socket import *
 
-SERVER_NAME = 'hostname'
+SERVER_NAME = 'localhost'
 PORT = 12000
 
 client_socket = socket(AF_INET, SOCK_DGRAM)
