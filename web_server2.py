@@ -13,7 +13,7 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 #Prepare a sever socket
 #Fill in start
 serverSocket.bind(('', SERVER_PORT))
-serverSocket.listen(1)
+serverSocket.listen(1) #So far only allows for 1 connection at a time
 #Fill in end
 
 while True:
@@ -31,6 +31,8 @@ while True:
         #Fill in start
         httpOK = 'HTTP/1.1 200 OK\r\n'
         connectionSocket.send(httpOK.encode())
+        connectionSocket.send('Content-Type: text/html\n'.encode())
+        connectionSocket.send('\n'.encode())
         #Fill in end
 
         #Send the content of the requested file to the client
@@ -42,9 +44,22 @@ while True:
     except IOError:
         #Send response message for file not found (404)
         #Fill in start
+
+        #Prepare to send the 404 Not Found html page
+        not_found = open('notFound.html')
+        outputNotFound = not_found.read()
+        not_found.close()
+
+
         httpNotFound = 'HTTP/1.1 404 NOT FOUND\r\n'
         connectionSocket.send(httpNotFound.encode())
+        connectionSocket.send('Content-Type: text/html\n'.encode())
+        connectionSocket.send('\n'.encode())
 
+        for i in range(0, len(outputNotFound)):
+            connectionSocket.send(outputNotFound[i].encode())
+
+        connectionSocket.send("\r\n".encode())
         #Fill in end
 
         #Close client socket
