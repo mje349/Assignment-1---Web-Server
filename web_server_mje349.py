@@ -1,6 +1,6 @@
 #Author: Montana Esguerra
 #Date: 2/20/20
-#Filename: web_server2.py
+#Filename: web_server_mje349.py
 #Description:
 #This is a simple web server that allows for only 1 client to connect at a time.
 #This server runs off of localhost on port 12001
