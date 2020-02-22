@@ -1,7 +1,14 @@
 #Author: Montana Esguerra
 #Date: 2/20/20
 #Filename: web_server2.py
-#Description: Simple web server
+#Description:
+#This is a simple web server that allows for only 1 client to connect at a time.
+#This server runs off of localhost on port 12001
+#Currently, the server only serves two html pages: HelloWorld.html and notFound.html
+#The notFound.html page is served anytime a page not in the directory is requested - this includes index.html
+#This is a TCP Web Server - it works with Firefox, Chrome, and Edge without issue.
+#To get the notFound.html to display on Internet Explorer, go into settings - Internet Options - Advanced tab -
+#Scroll down and uncheck Show friendly HTTP Error Messages
 
 #import socket module
 from socket import *
