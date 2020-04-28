@@ -10,7 +10,6 @@
 #To get the notFound.html to display on Internet Explorer, go into settings - Internet Options - Advanced tab -
 #Scroll down and uncheck Show friendly HTTP Error Messages
 
-#import socket module
 from socket import *
 import sys # In order to terminate the program
 
@@ -26,12 +25,12 @@ serverSocket.listen(1) #So far only allows for 1 connection at a time
 while True:
     #Establish the connection
     print('Ready to serve on port ' + str(SERVER_PORT))
-    connectionSocket, addr = serverSocket.accept() #Fill in start      #Fill in end
+    connectionSocket, addr = serverSocket.accept()
     try:
-        message = connectionSocket.recv(2048).decode() #Fill in start    #Fill in end
+        message = connectionSocket.recv(2048).decode()
         filename = message.split()[1]
         f = open(filename[1:])
-        outputdata = f.read() #Fill in start     #Fill in end
+        outputdata = f.read()
         f.close()
 
         #Send one HTTP header line into socket
@@ -50,7 +49,6 @@ while True:
         connectionSocket.close()
     except IOError:
         #Send response message for file not found (404)
-        #Fill in start
 
         #Prepare to send the 404 Not Found html page
         not_found = open('notFound.html')
@@ -67,12 +65,9 @@ while True:
             connectionSocket.send(outputNotFound[i].encode())
 
         connectionSocket.send("\r\n".encode())
-        #Fill in end
 
         #Close client socket
-        #Fill in start
     connectionSocket.close()
-        #Fill in end
 serverSocket.close()
 sys.exit()  #Terminate the program after sending the corresponding data
 
