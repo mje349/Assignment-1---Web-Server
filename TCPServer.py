@@ -16,8 +16,21 @@ SERVER_SOCKET.listen(1)
 print('The server is ready to receive on port ' + str(SERVER_PORT))
 
 while True:
+
+    #This is our "pipe"
     connection_socket, addr = SERVER_SOCKET.accept()
+    #At this point, handshaking is complete
+
+    print(addr)
+
+    #Receive a data from the client
     sentence = connection_socket.recv(2048).decode()
+
+    #Capitalize each character
     capitalizedSentence = sentence.upper()
+
+    #Send it back to the client
     connection_socket.send(capitalizedSentence.encode())
+
+    #Close the connection
     connection_socket.close()
