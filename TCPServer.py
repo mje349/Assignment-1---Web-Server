@@ -8,6 +8,8 @@ from socket import *
 SERVER_PORT = 12000
 SERVER_SOCKET = socket(AF_INET, SOCK_STREAM)
 
+#The '' is for localhost
+
 SERVER_SOCKET.bind(('', SERVER_PORT))
 SERVER_SOCKET.listen(1)
 

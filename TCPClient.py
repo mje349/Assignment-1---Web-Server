@@ -13,6 +13,7 @@ SERVER_PORT = 12000
 client_socket = socket(AF_INET, SOCK_STREAM)
 client_socket.connect((SERVER_NAME, SERVER_PORT))
 
+#Program takes a sentence and capitalizes each letter
 sentence = raw_input('Input lowercase sentence:')
 client_socket.send(sentence.encode())
 
